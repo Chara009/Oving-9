@@ -14,7 +14,20 @@ def meny():
         Overskrift = input("Skriv inn overskrift: ")
         liste(Gruppe, Overskrift)
     if Valg == "4":
-        liste(Gruppet, "Velg en som du vil redigere")
-        valg = input("Skriv tallet av den som du vil redigere: ")
+        Gruppe = input("Skriv inn en gruppe av avtaler du vil redigere: ")
+        liste(Gruppe, 'velg')
+        valget = int(input('skriv inn indeksen'))
+        print(Gruppe.get(valget))
+        Gruppe.get(valget).tittel = input('skriv inn ny tittel: ')
+        Gruppe.get(valget).sted = input('skriv inn nytt sted: ')
+        Gruppe.get(valget).starttidspunkt = datetime.datetime(int(input("Starttidspunkt år:")), int(input("Måned:")), int(input("Dag:")), int(input("Timer:")), int(input("Minutter:")), int(input("Sekunder:")))
+        Gruppe.get(valget).varighet = input('skriv inn ny varighet')
+        print(Gruppe.get(valget))
+    if Valg == "5":
+        Gruppe = input("Skriv inn navnet av gruppen hvor du vil slette av: ")
+        liste(Gruppe, 'slett')  
+        valget = int(input('skriv inn indeksen'))
+        Gruppe.pop(valget)
+        liste(Gruppe, 'slett')
     if Valg == "6":
         print("Ha en fin dag")
